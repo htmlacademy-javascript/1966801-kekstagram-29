@@ -30,8 +30,8 @@ function getNumbers (string) {
   return parseInt(result, 10);
 }
 
-getNumbers('2023 год');            // 2023
-getNumbers('ECMAScript 2022');     // 2022
-getNumbers('1 кефир, 0.5 батона'); // 105
-getNumbers('агент 007');           // 7
-getNumbers('а я томат');   // NaN
+getNumbers('2023 год');
+getNumbers('ECMAScript 2022');
+getNumbers('1 кефир, 0.5 батона');
+getNumbers('агент 007');
+getNumbers('а я томат');
