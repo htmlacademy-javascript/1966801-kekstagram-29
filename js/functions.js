@@ -12,9 +12,12 @@ checkLength('проверяемая строка', 10);
 
 function isPalindrom (string) {
   const checkingString = string.toLowerCase().replaceAll(' ', '');
-  for (let i = 0; i <= string.length / 2; i++) {
-    return checkingString[i] === checkingString[checkingString.length - 1];
+  for (let i = 0; i < string.length / 2; i++) {
+    if (checkingString[i] !== checkingString[checkingString.length - i - 1]) {
+      return false;
+    }
   }
+  return true;
 }
 
 isPalindrom('топот');
