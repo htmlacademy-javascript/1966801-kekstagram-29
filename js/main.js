@@ -22,7 +22,6 @@ const NAMES = [
   'Марина',
   'Алексей'
 ];
-const MAX_PHOTO = 25;
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const MIN_COMMENTS = 0;
@@ -53,9 +52,9 @@ const generateComments = () => {
   return result;
 };
 
-const generatePhotoDescription = () => {
+const generatePhotos = (photoAmount) => {
   const result = [];
-  for (let i = 0; i < MAX_PHOTO; i++) {
+  for (let i = 0; i < photoAmount; i++) {
     result.push({
       id: i + 1,
       url: `photos/'${(i + 1)}.jpg`,
@@ -67,4 +66,4 @@ const generatePhotoDescription = () => {
   return result;
 };
 
-generatePhotoDescription();
+generatePhotos(25);
