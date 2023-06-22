@@ -22,6 +22,7 @@ const NAMES = [
   'Марина',
   'Алексей'
 ];
+const PHOTO_AMOUNT = 25;
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 const MIN_COMMENTS = 0;
@@ -66,4 +67,4 @@ const generatePhotos = (photoAmount) => {
   return result;
 };
 
-generatePhotos(25);
+generatePhotos(PHOTO_AMOUNT);
