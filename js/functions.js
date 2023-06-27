@@ -52,7 +52,7 @@ export const isMeetOnLimit = (workStart, workEnd, meetingStart, meetingLength) =
   const workEndInMin = parseTime(workEnd);
   const meetingStartInMin = parseTime(meetingStart);
 
-  return meetingStartInMin >= workStartInMin && meetingStartInMin + meetingLength <= workEndInMin;
+  return (meetingStartInMin >= workStartInMin) && (meetingStartInMin + meetingLength) <= workEndInMin;
 };
 
 isMeetOnLimit('08:00', '17:30', '14:00', 90);
