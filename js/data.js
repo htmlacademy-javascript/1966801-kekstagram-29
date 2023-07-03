@@ -1,12 +1,16 @@
-import { getRandomInteger } from './util';
-import { getRandomArrayElement } from './util';
+import { getRandomInteger } from './util.js';
+import { getRandomArrayElement } from './util.js';
 
-const MIN_LIKES = 15;
-const MAX_LIKES = 200;
-const MIN_COMMENTS = 0;
-const MAX_COMMENTS = 30;
-const MIN_AVATAR_INDEX = 1;
-const MAX_AVATAR_INDEX = 6;
+const COUNTERS = {
+  PHOTO_AMOUNT: 25,
+  MIN_LIKES: 15,
+  MAX_LIKES: 200,
+  MIN_COMMENTS: 0,
+  MAX_COMMENTS: 30,
+  MIN_AVATAR_INDEX: 1,
+  MAX_AVATAR_INDEX: 6
+};
+
 const DESCRIPTIONS = [
   'Париж',
   'Морское путешествие',
@@ -34,10 +38,10 @@ const NAMES = [
 
 const generateComments = () => {
   const result = [];
-  for (let i = 0; i < getRandomInteger(MIN_COMMENTS, MAX_COMMENTS); i++) {
+  for (let i = 0; i < getRandomInteger(COUNTERS.MIN_COMMENTS, COUNTERS.MAX_COMMENTS); i++) {
     result.push({
       id: i + 1,
-      avatar: `img/avatar-${getRandomInteger(MIN_AVATAR_INDEX, MAX_AVATAR_INDEX)}.svg`,
+      avatar: `img/avatar-${getRandomInteger(COUNTERS.MIN_AVATAR_INDEX, COUNTERS.MAX_AVATAR_INDEX)}.svg`,
       message: getRandomArrayElement(MESSAGES),
       name: getRandomArrayElement(NAMES)
     });
@@ -50,13 +54,13 @@ const generatePhotos = (photoAmount) => {
   for (let i = 0; i < photoAmount; i++) {
     result.push({
       id: i + 1,
-      url: `photos/'${(i + 1)}.jpg`,
+      url: `photos/${(i + 1)}.jpg`,
       description: getRandomArrayElement(DESCRIPTIONS),
-      likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
+      likes: getRandomInteger(COUNTERS.MIN_LIKES, COUNTERS.MAX_LIKES),
       comments: generateComments()
     });
   }
   return result;
 };
 
-export {generatePhotos};
+export {generatePhotos, COUNTERS};
