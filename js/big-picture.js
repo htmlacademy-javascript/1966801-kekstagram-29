@@ -32,16 +32,15 @@ const renderCommentsBlock = (comments) => {
   });
 };
 
-const showComments = () => {
+const showComments = (isLastBunch) => {
   const { comments } = currentThumbnail;
-  const isLastBunch = comments.length <= currentStart + COMMENT_STEP;
 
   if (!isLastBunch) {
     commentsLoadMoreButton.classList.remove('hidden');
   } else {
     commentsLoadMoreButton.classList.add('hidden');
+    commentsLoadMoreButton.removeEventListener('click', showComments);
   }
-
   const textFrom = isLastBunch ? comments.length : currentStart + COMMENT_STEP;
   bigPictureCommentsElement.textContent = `${textFrom} из ${comments.length} комментариев`;
   const bunch = comments.slice(currentStart, currentStart + COMMENT_STEP);
@@ -61,7 +60,6 @@ const createBigPicture = (evt) => {
   bigPictureLikes.textContent = currentThumbnail.likes;
   bigPictureCommentsCount.textContent = currentThumbnail.comments.length;
   bigPictureCaption.textContent = currentThumbnail.description;
-  showComments();
 };
 
 const onKeydownEscape = (evt) => {
@@ -96,7 +94,11 @@ const openBigPicture = () => {
   bigPicture.classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
   addListenersToCloseModal();
-  addListenerToLoadMoreButton();
+  const isLastCommentsBunch = currentThumbnail.comments.length <= currentStart + COMMENT_STEP;
+  if (!isLastCommentsBunch) {
+    addListenerToLoadMoreButton();
+  }
+  showComments(isLastCommentsBunch);
 };
 
 const addListenersToThumbnails = () => {
