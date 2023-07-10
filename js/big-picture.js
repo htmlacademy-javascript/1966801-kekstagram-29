@@ -14,7 +14,7 @@ const bigPictureCloseButton = bigPicture.querySelector('.big-picture__cancel');
 const commentTemplate = document.querySelector('#comment')
   .content
   .querySelector('.social__comment');
-const commentsLoaderButton = bigPicture.querySelector('.comments-loader');
+const commentsLoadMoreButton = bigPicture.querySelector('.comments-loader');
 const COMMENT_STEP = 5;
 let currentComments = [];
 let currentThumbnail = {};
@@ -37,9 +37,9 @@ const showComments = () => {
   const isLastBunch = comments.length <= currentStart + COMMENT_STEP;
 
   if (!isLastBunch) {
-    commentsLoaderButton.classList.remove('hidden');
+    commentsLoadMoreButton.classList.remove('hidden');
   } else {
-    commentsLoaderButton.classList.add('hidden');
+    commentsLoadMoreButton.classList.add('hidden');
   }
 
   const textFrom = isLastBunch ? comments.length : currentStart + COMMENT_STEP;
@@ -51,7 +51,7 @@ const showComments = () => {
 };
 
 const addListenerToLoadMoreButton = () => {
-  commentsLoaderButton.addEventListener('click', showComments);
+  commentsLoadMoreButton.addEventListener('click', showComments);
 };
 
 const createBigPicture = (evt) => {
