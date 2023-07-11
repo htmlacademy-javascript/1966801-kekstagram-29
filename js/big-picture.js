@@ -32,8 +32,11 @@ const renderCommentsBlock = (comments) => {
   });
 };
 
-const showComments = (isLastBunch) => {
+const isLastCommentsBunch = () => currentThumbnail.comments.length <= currentStart + COMMENT_STEP;
+
+const showComments = () => {
   const { comments } = currentThumbnail;
+  const isLastBunch = isLastCommentsBunch();
 
   if (!isLastBunch) {
     commentsLoadMoreButton.classList.remove('hidden');
@@ -94,11 +97,10 @@ const openBigPicture = () => {
   bigPicture.classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
   addListenersToCloseModal();
-  const isLastCommentsBunch = currentThumbnail.comments.length <= currentStart + COMMENT_STEP;
-  if (!isLastCommentsBunch) {
+  if (!isLastCommentsBunch()) {
     addListenerToLoadMoreButton();
   }
-  showComments(isLastCommentsBunch);
+  showComments();
 };
 
 const addListenersToThumbnails = () => {
