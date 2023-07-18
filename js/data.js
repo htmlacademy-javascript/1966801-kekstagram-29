@@ -1,6 +1,8 @@
 import { getRandomInteger } from './util.js';
 import { getRandomArrayElement } from './util.js';
 
+const HASHTAG_PATTERN = /^#[a-zа-я0-9]{1,19}$/i;
+const HASHTAG_COUNT = 5;
 const COUNTERS = {
   PHOTO_AMOUNT: 25,
   MIN_LIKES: 15,
@@ -63,4 +65,4 @@ const generatePhotos = (photoAmount) => {
   return result;
 };
 
-export {generatePhotos, COUNTERS};
+export {generatePhotos, COUNTERS, HASHTAG_PATTERN, HASHTAG_COUNT};

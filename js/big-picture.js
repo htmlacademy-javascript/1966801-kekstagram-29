@@ -99,6 +99,7 @@ const openBigPicture = () => {
 const addListenersToThumbnails = () => {
   thumbnails.forEach((thumbnail) => {
     thumbnail.addEventListener('click', (evt) => {
+      evt.preventDefault();
       createBigPicture(evt);
       openBigPicture();
     });
