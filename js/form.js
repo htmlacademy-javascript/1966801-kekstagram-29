@@ -1,5 +1,6 @@
 import { isEscapeKey } from './util.js';
 import { pristine } from './form-validation.js';
+import { resetScale, addEventListenerToScaleButton, removeEventListenerToScaleButton } from './scale.js';
 
 const uploadField = document.querySelector('.img-upload__overlay');
 const uploadForm = document.querySelector('.img-upload__form');
@@ -12,6 +13,7 @@ const closeUploadField = (evt) => {
   if (isEscapeKey(evt) || evt.type === 'click') {
     uploadForm.reset();
     pristine.reset();
+    resetScale();
     uploadField.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
 

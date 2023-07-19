@@ -13,6 +13,12 @@ const COUNTERS = {
   MAX_AVATAR_INDEX: 6
 };
 
+const SCALE = {
+  STEP: 25,
+  MIN: 25,
+  MAX: 100
+};
+
 const DESCRIPTIONS = [
   'Париж',
   'Морское путешествие',
@@ -65,4 +71,4 @@ const generatePhotos = (photoAmount) => {
   return result;
 };
 
-export {generatePhotos, COUNTERS, HASHTAG_PATTERN, HASHTAG_COUNT};
+export {generatePhotos, COUNTERS, HASHTAG_PATTERN, HASHTAG_COUNT, SCALE};
