@@ -19,6 +19,7 @@ const closeUploadField = (evt) => {
 
     document.removeEventListener('keydown', closeUploadField);
     resetButton.removeEventListener('click', closeUploadField);
+    removeEventListenerToScaleButton();
   }
 };
 
@@ -53,6 +54,7 @@ const toUploadImg = () => {
     toStopPropagation(hashtagField);
   });
   addListenersToSubmitForm();
+  addEventListenerToScaleButton();
 };
 
 toUploadImg();

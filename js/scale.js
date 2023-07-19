@@ -1,10 +1,9 @@
-import { SCALE } from "./data.js";
+import { SCALE } from './data.js';
 
-const scaleControlValue = document.querySelector('.scale__control');
 const smallerButton = document.querySelector('.scale__control--smaller');
 const biggerButton = document.querySelector('.scale__control--bigger');
 const scaleValue = document.querySelector('.scale__control--value');
-const imagePreview = document.querySelector('.img-upload__preview img')
+const imagePreview = document.querySelector('.img-upload__preview img');
 
 const scaleImage = (value) => {
   scaleValue.value = `${value}%`;
@@ -23,7 +22,7 @@ const onSmallerButtonClick = () => {
 
 const onBiggerButtonClick = () => {
   const currentValue = parseInt(scaleValue.value, 10);
-  const newValue = currentValue - SCALE.STEP;
+  const newValue = currentValue + SCALE.STEP;
   if (newValue > SCALE.MAX) {
     scaleImage(SCALE.MAX);
   } else {
