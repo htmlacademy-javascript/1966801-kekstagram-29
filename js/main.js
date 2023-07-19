@@ -1,2 +1,3 @@
-import './thumbnails.js';
 import './big-picture.js';
+import './form.js';
+import './form-validation.js';
