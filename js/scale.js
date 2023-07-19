@@ -30,16 +30,16 @@ const onBiggerButtonClick = () => {
   }
 };
 
-const resetScale = () => scaleImage(SCALE.default);
+const resetScale = () => scaleImage(SCALE.DEFAULT);
 
-const addEventListenerToScaleButton = () => {
+const addListenersToScaleButton = () => {
   smallerButton.addEventListener('click', onSmallerButtonClick);
   biggerButton.addEventListener('click', onBiggerButtonClick);
 };
 
-const removeEventListenerToScaleButton = () => {
+const removeListenersToScaleButton = () => {
   smallerButton.removeEventListener('click', onSmallerButtonClick);
   biggerButton.removeEventListener('click', onBiggerButtonClick);
 };
 
-export { resetScale, addEventListenerToScaleButton, removeEventListenerToScaleButton};
+export { resetScale, addListenersToScaleButton, removeListenersToScaleButton};

@@ -1,6 +1,7 @@
 import { isEscapeKey } from './util.js';
 import { pristine } from './form-validation.js';
-import { resetScale, addEventListenerToScaleButton, removeEventListenerToScaleButton } from './scale.js';
+import { resetScale, addListenersToScaleButton, removeListenersToScaleButton } from './scale.js';
+import { setDefaultSlider, resetSlider, addListenersToEffectList,removeListenersToEffectList } from './filter.js';
 
 const uploadField = document.querySelector('.img-upload__overlay');
 const uploadForm = document.querySelector('.img-upload__form');
@@ -14,12 +15,14 @@ const closeUploadField = (evt) => {
     uploadForm.reset();
     pristine.reset();
     resetScale();
+    resetSlider();
     uploadField.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
 
     document.removeEventListener('keydown', closeUploadField);
     resetButton.removeEventListener('click', closeUploadField);
-    removeEventListenerToScaleButton();
+    removeListenersToScaleButton();
+    removeListenersToEffectList();
   }
 };
 
@@ -52,9 +55,11 @@ const toUploadImg = () => {
     addListenersToCloseUploadField();
     toStopPropagation(commentField);
     toStopPropagation(hashtagField);
+    addListenersToScaleButton();
+    addListenersToEffectList();
   });
+  setDefaultSlider();
   addListenersToSubmitForm();
-  addEventListenerToScaleButton();
 };
 
-toUploadImg();
+export {toUploadImg};
