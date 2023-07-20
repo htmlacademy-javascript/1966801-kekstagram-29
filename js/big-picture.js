@@ -106,4 +106,4 @@ const addListenersToThumbnails = () => {
   });
 };
 
-addListenersToThumbnails();
+export {addListenersToThumbnails};
