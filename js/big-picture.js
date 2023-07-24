@@ -1,9 +1,9 @@
-import { renderThumbnails, arrayThumbnail } from './thumbnails.js';
+// import { renderThumbnails } from './thumbnails.js';
 import { isEscapeKey } from './util.js';
 
-renderThumbnails();
+// renderThumbnails();
+// const thumbnailsList = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
-const thumbnails = document.querySelectorAll('.picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const bigPictureLikes = bigPicture.querySelector('.likes-count');
 const bigPictureCommentsElement = bigPicture.querySelector('.social__comment-count');
@@ -19,6 +19,12 @@ const COMMENT_STEP = 5;
 let currentComments = [];
 let currentThumbnail = {};
 let currentStart = 0;
+
+let thumbnails = [];
+
+const writeThumbnails = (data) => {
+  thumbnails = data;
+};
 
 const renderCommentsBlock = (comments) => {
   bigPictureComments.innerHTML = '';
@@ -53,7 +59,7 @@ const showComments = () => {
 };
 
 const createBigPicture = (evt) => {
-  currentThumbnail = arrayThumbnail.find((it) => it.id === Number(evt.target.dataset.id));
+  currentThumbnail = thumbnails.find((it) => it.id === Number(evt.target.dataset.id));
   bigPictureImg.src = currentThumbnail.url;
   bigPictureImg.alt = currentThumbnail.description;
   bigPictureLikes.textContent = currentThumbnail.likes;
@@ -97,7 +103,10 @@ const openBigPicture = () => {
 };
 
 const addListenersToThumbnails = () => {
-  thumbnails.forEach((thumbnail) => {
+  const thumbnailsList = document.querySelectorAll('.picture');
+  // console.log('document :>> ', document);
+  // console.log('thumbnailsList :>> ', thumbnailsList);
+  thumbnailsList.forEach((thumbnail) => {
     thumbnail.addEventListener('click', (evt) => {
       evt.preventDefault();
       createBigPicture(evt);
@@ -106,4 +115,4 @@ const addListenersToThumbnails = () => {
   });
 };
 
-export {addListenersToThumbnails};
+export {addListenersToThumbnails, writeThumbnails};
