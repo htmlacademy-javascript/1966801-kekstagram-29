@@ -3,7 +3,7 @@ import { pristine } from './form-validation.js';
 import { resetScale, addListenersToScaleButton, removeListenersToScaleButton } from './scale.js';
 import { setDefaultSlider, resetSlider, addListenersToEffectList,removeListenersToEffectList } from './filter.js';
 import { sendData } from './api.js';
-import { showMessage } from './message.js';
+import { toggleMessage } from './message.js';
 
 const SubmitButtonText = {
   IDLE: 'Опубликовать',
@@ -58,11 +58,10 @@ const setFormSubmit = (onSuccess) => {
       blockSubmitButton();
       sendData(new FormData(evt.target))
         .then(() => onSuccess(evt))
-        .then(() => showMessage(true))
+        .then(() => toggleMessage(true))
         .catch(
           (error) => {
-            showMessage();
-            console.log('error :>> ', error.message);
+            toggleMessage();
             throw new Error(error.message);
           }
         )
@@ -90,7 +89,6 @@ const toUploadImg = () => {
     addListenersToEffectList();
   });
   setDefaultSlider();
-  // addListenersToSubmitForm();
 };
 
 export {toUploadImg, setFormSubmit, closePopup};

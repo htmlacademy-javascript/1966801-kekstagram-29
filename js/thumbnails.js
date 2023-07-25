@@ -1,7 +1,3 @@
-// import { generatePhotos } from './data.js';
-// import { COUNTERS } from './data.js';
-// const arrayThumbnail = generatePhotos(COUNTERS.PHOTO_AMOUNT);
-
 const thumbnailList = document.querySelector('.pictures');
 const thumbnailTemplate = document.querySelector('#picture')
   .content
