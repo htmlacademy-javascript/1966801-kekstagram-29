@@ -1,7 +1,7 @@
 import { isEscapeKey } from './util.js';
 import { pristine } from './form-validation.js';
 import { resetScale, addListenersToScaleButton, removeListenersToScaleButton } from './scale.js';
-import { setDefaultSlider, resetSlider, addListenersToEffectList,removeListenersToEffectList } from './filter.js';
+import { setDefaultSlider, resetSlider, addListenersToEffectList,removeListenersToEffectList } from './effects.js';
 import { sendData } from './api.js';
 import { toggleMessage } from './message.js';
 
