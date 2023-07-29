@@ -1,12 +1,9 @@
-// import { renderThumbnails } from './thumbnails.js';
 import { isEscapeKey } from './util.js';
 
-// renderThumbnails();
-// const thumbnailsList = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const bigPictureLikes = bigPicture.querySelector('.likes-count');
-const bigPictureCommentsElement = bigPicture.querySelector('.social__comment-count');
+const bigPictureCommentsDownload = bigPicture.querySelector('.comments-download');
 const bigPictureCommentsCount = bigPicture.querySelector('.comments-count');
 const bigPictureComments = bigPicture.querySelector('.social__comments');
 const bigPictureCaption = bigPicture.querySelector('.social__caption');
@@ -51,7 +48,7 @@ const showComments = () => {
   }
 
   const textFrom = isLastBunch ? comments.length : currentStart + COMMENT_STEP;
-  bigPictureCommentsElement.textContent = `${textFrom} из ${comments.length} комментариев`;
+  bigPictureCommentsDownload.textContent = `${textFrom}`;
   const bunch = comments.slice(currentStart, currentStart + COMMENT_STEP);
   currentComments = currentComments.concat(bunch);
   currentStart += COMMENT_STEP;
@@ -104,8 +101,6 @@ const openBigPicture = () => {
 
 const addListenersToThumbnails = () => {
   const thumbnailsList = document.querySelectorAll('.picture');
-  // console.log('document :>> ', document);
-  // console.log('thumbnailsList :>> ', thumbnailsList);
   thumbnailsList.forEach((thumbnail) => {
     thumbnail.addEventListener('click', (evt) => {
       evt.preventDefault();

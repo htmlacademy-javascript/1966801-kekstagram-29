@@ -1,5 +1,6 @@
 const HASHTAG_PATTERN = /^#[a-zа-я0-9]{1,19}$/i;
 const HASHTAG_COUNT = 5;
+const ALERT_SHOW_TIME = 5000;
 
 const SCALE = {
   STEP: 25,
@@ -59,4 +60,4 @@ const EFFECTS = [
   }
 ];
 
-export { HASHTAG_PATTERN, HASHTAG_COUNT, SCALE, EFFECTS };
+export { HASHTAG_PATTERN, HASHTAG_COUNT, SCALE, EFFECTS, ALERT_SHOW_TIME };
