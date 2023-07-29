@@ -60,9 +60,8 @@ const setFormSubmit = (onSuccess) => {
         .then(() => onSuccess(evt))
         .then(() => toggleMessage(true))
         .catch(
-          (error) => {
+          () => {
             toggleMessage();
-            throw new Error(error.message);
           }
         )
         .finally(unblockSubmitButton);
