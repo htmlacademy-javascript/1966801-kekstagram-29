@@ -100,13 +100,13 @@ const openBigPicture = () => {
 };
 
 const addListenersToThumbnails = () => {
-  const thumbnailsList = document.querySelectorAll('.picture');
-  thumbnailsList.forEach((thumbnail) => {
-    thumbnail.addEventListener('click', (evt) => {
+  const thumbnailsContainer = document.querySelector('.pictures');
+  thumbnailsContainer.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('picture__img')) {
       evt.preventDefault();
       createBigPicture(evt);
       openBigPicture();
-    });
+    }
   });
 };
 
