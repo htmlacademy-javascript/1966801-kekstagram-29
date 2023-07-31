@@ -1,5 +1,6 @@
 import { isEscapeKey } from './util.js';
 
+const COMMENT_STEP = 5;
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const bigPictureLikes = bigPicture.querySelector('.likes-count');
@@ -12,7 +13,6 @@ const commentTemplate = document.querySelector('#comment')
   .content
   .querySelector('.social__comment');
 const commentsLoadMoreButton = bigPicture.querySelector('.comments-loader');
-const COMMENT_STEP = 5;
 let currentComments = [];
 let currentThumbnail = {};
 let currentStart = 0;

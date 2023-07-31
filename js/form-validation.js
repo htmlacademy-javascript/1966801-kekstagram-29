@@ -3,17 +3,17 @@ import { HASHTAG_COUNT, HASHTAG_PATTERN } from './data.js';
 const uploadForm = document.querySelector('.img-upload__form');
 const textHashtags = uploadForm.querySelector('.text__hashtags');
 
-const hashTags = (tagString) => tagString
+const getHashTags = (tagString) => tagString
   .trim()
   .split(' ')
   .filter((tag) => Boolean(tag.length));
 
-const hasValidSymbols = (value) => hashTags(value).every((tag) => HASHTAG_PATTERN.test(tag));
+const hasValidSymbols = (value) => getHashTags(value).every((tag) => HASHTAG_PATTERN.test(tag));
 
-const isValidCount = (value) => hashTags(value).length <= HASHTAG_COUNT;
+const isValidCount = (value) => getHashTags(value).length <= HASHTAG_COUNT;
 
 const isHashtagUnique = (value) => {
-  const lowerCaseHashTags = hashTags(value).map((tag) => tag.toLowerCase());
+  const lowerCaseHashTags = getHashTags(value).map((tag) => tag.toLowerCase());
   return lowerCaseHashTags.length === new Set(lowerCaseHashTags).size;
 };
 
