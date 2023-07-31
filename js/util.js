@@ -1,4 +1,4 @@
-import { ALERT_SHOW_TIME } from './data.js';
+import { ALERT_SHOW_TIME, DEFAULT_TIMEOUT_DELAY } from './data.js';
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const showAlert = (message) => {
@@ -23,7 +23,7 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-function debounce (callback, timeoutDelay = 500) {
+function debounce (callback, timeoutDelay = DEFAULT_TIMEOUT_DELAY) {
   let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);
